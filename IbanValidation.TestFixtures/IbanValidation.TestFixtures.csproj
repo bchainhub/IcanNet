@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net45</TargetFramework>
-    <Product>IbanValidation.TestFixtures</Product> 
-    <Description>Test IBAN bank account number validation.</Description> 
-    <Copyright>Copyright janv8000 © 2017</Copyright> 
-    <Authors>Jan Verhaeghe</Authors> 
+    <Product>IbanValidation.TestFixtures</Product>
+    <Description>Test IBAN bank account number validation.</Description>
+    <Copyright>Copyright janv8000 © 2018</Copyright>
+    <Authors>Jan Verhaeghe</Authors>
     <IsPackable>false</IsPackable>
     <TestRunner>nunit</TestRunner>
   </PropertyGroup>
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IbanValidation\IbanValidation.csproj"/>
+    <ProjectReference Include="..\IbanValidation\IbanValidation.csproj" />
   </ItemGroup>
 
 </Project>
