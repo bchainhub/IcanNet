@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.1;net45</TargetFrameworks>
+    <Product>IcanNet</Product>
+    <Description>Provides ICAN account number validation.</Description>
+    <Copyright>Copyright 2020 Crypto Hub</Copyright>
+    <Authors>Crypto Hub, Jan Verhaeghe, contributors</Authors>
+    <Version>2.0.0</Version>
+    <PackageLicenseUrl>https://github.com/cryptohub-digital/IcanNet/blob/master/LICENSE</PackageLicenseUrl> 
+    <PackageProjectUrl>https://github.com/cryptohub-digital/IcanNet</PackageProjectUrl> 
+    <PackageTags>ICAN SEPA IBAN CHECK VALIDATOR</PackageTags>
+  </PropertyGroup>
+
+</Project>

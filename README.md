@@ -1,12 +1,9 @@
-# IbanValidation
+# IcanNet
 
-[![Build status](https://ci.appveyor.com/api/projects/status/lweml30irx0ad7vs/branch/master?svg=true)](https://ci.appveyor.com/project/janv8000/ibanvalidation/branch/master)
+.net validation for ICAN addresses.
 
-Provides IBAN bank account number validation.
+IcanNet follows the [ISO 13616 IBAN Registry technical specification](https://www.swift.com/standards/data-standards/iban) with the addition of the Crypto addresses.
 
-See [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number)
+## NuGet packages
 
-## NuGet packages ##
-
-- [IbanValidation](https://www.nuget.org/packages/IbanValidation/)
-- [IbanValidation.Web](https://www.nuget.org/packages/IbanValidation.Web/)
+- [IcanNet](https://www.nuget.org/packages/IcanNet/)

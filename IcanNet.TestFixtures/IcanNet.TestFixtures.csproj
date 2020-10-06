@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net45</TargetFramework>
-    <Product>IbanValidation.TestFixtures</Product>
-    <Description>Test IBAN bank account number validation.</Description>
-    <Copyright>Copyright janv8000 © 2018</Copyright>
-    <Authors>Jan Verhaeghe</Authors>
+    <Product>IcanNet.TestFixtures</Product>
+    <Description>Test ICAN account number validation.</Description>
+    <Copyright>Copyright 2020 Crypto Hub</Copyright>
+    <Authors>Crypto Hub, Jan Verhaeghe, contributors</Authors>
     <IsPackable>false</IsPackable>
     <TestRunner>nunit</TestRunner>
   </PropertyGroup>
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IbanValidation\IbanValidation.csproj" />
+    <ProjectReference Include="..\IcanNet\IcanNet.csproj" />
   </ItemGroup>
 
 </Project>

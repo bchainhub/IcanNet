@@ -3,15 +3,15 @@ using System.Globalization;
 using System.Numerics;
 using System.Text.RegularExpressions;
 
-namespace IbanValidation
+namespace IcanNet
 {
-    public class IbanValidator : IIbanValidator
+    public class IcanValidator : IIcanValidator
     {
-        public IbanValidationResult Validate(string value)
+        public IcanNetResult Validate(string value)
         {
-            if (string.IsNullOrWhiteSpace(value)) { return IbanValidationResult.ValueMissing; }
+            if (string.IsNullOrWhiteSpace(value)) { return IcanNetResult.ValueMissing; }
 
-            if (value.Length < 2) { return IbanValidationResult.ValueTooSmall; }
+            if (value.Length < 2) { return IcanNetResult.ValueTooSmall; }
 
             var countryCode = value.Substring(0, 2).ToUpper();
 
@@ -20,23 +20,23 @@ namespace IbanValidation
             var countryCodeKnown = _lengths.TryGetValue(countryCode, out lengthForCountryCode);
             if (!countryCodeKnown)
             {
-                return IbanValidationResult.CountryCodeNotKnown;
+                return IcanNetResult.CountryCodeNotKnown;
             }
 
             // Check length.
-            if (value.Length < lengthForCountryCode) { return IbanValidationResult.ValueTooSmall; }
-            if (value.Length > lengthForCountryCode) { return IbanValidationResult.ValueTooBig; }
+            if (value.Length < lengthForCountryCode) { return IcanNetResult.ValueTooSmall; }
+            if (value.Length > lengthForCountryCode) { return IcanNetResult.ValueTooBig; }
 
             var upperValue = value.ToUpper();
-            var newIban = upperValue.Substring(4) + upperValue.Substring(0, 4);
+            var newIcan = upperValue.Substring(4) + upperValue.Substring(0, 4);
 
-            newIban = Regex.Replace(newIban, @"\D", match => (match.Value[0] - 55).ToString(CultureInfo.InvariantCulture));
+            newIcan = Regex.Replace(newIcan, @"\D", match => (match.Value[0] - 55).ToString(CultureInfo.InvariantCulture));
 
-            var remainder = BigInteger.Parse(newIban) % 97;
+            var remainder = BigInteger.Parse(newIcan) % 97;
 
-            if (remainder != 1) { return IbanValidationResult.ValueFailsModule97Check; }
+            if (remainder != 1) { return IcanNetResult.ValueFailsModule97Check; }
 
-            return IbanValidationResult.IsValid;
+            return IcanNetResult.IsValid;
         }
 
         private static readonly Dictionary<string, int> _lengths = new Dictionary<string, int>
@@ -125,12 +125,16 @@ namespace IbanValidation
             { "SN", 28 },	//	Senegal
             { "ST", 25 },	//	São Tomé og Príncipe
             { "SV", 28 },	//	El Salvador
-            { "TL", 23 },	//	Øst-Timor
+            { "TL", 23 },	//	Timor-Leste
             { "TN", 24 },	//	Tunisia
             { "TR", 26 },	//	Turkey
             { "UA", 29 },	//	Ukraine
             { "VG", 24 },	//	Virgin Islands
-            { "XK", 20 }	//	Kosovo
+            { "XK", 20 },   //	Kosovo
+            //  Crypto
+            { "CB", 44 },   //	Core Blockchain Livenet
+            { "AB", 44 },   //	Core Blockchain Testnet
+            { "CE", 44 }    //	Core Enterprise Blockchain Privatenet
         };
     }
 }

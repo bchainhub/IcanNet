@@ -1,21 +1,21 @@
 ﻿using NUnit.Framework;
 
-namespace IbanValidation.TestFixtures
+namespace IcanNet.TestFixtures
 {
-    public class When_the_IbanValidator_is_told_to_Validate
+    public class When_the_IcanValidator_is_told_to_Validate
     {
         [Test]
         public void It_should_return_an_error_when_there_is_no_value_provided()
         {
             // Assert
             const string value = null;
-            var validator = new IbanValidator();
+            var validator = new IcanValidator();
 
             // Act
             var result = validator.Validate(value);
 
             // Assert
-            Assert.That(IbanValidationResult.ValueMissing, Is.EqualTo(result));
+            Assert.That(IcanNetResult.ValueMissing, Is.EqualTo(result));
         }
 
         [Test]
@@ -23,13 +23,13 @@ namespace IbanValidation.TestFixtures
         {
             // Assert
             const string value = "   ";
-            var validator = new IbanValidator();
+            var validator = new IcanValidator();
 
             // Act
             var result = validator.Validate(value);
 
             // Assert
-            Assert.That(IbanValidationResult.ValueMissing, Is.EqualTo(result));
+            Assert.That(IcanNetResult.ValueMissing, Is.EqualTo(result));
         }
 
         [Test]
@@ -37,13 +37,13 @@ namespace IbanValidation.TestFixtures
         {
             // Assert
             const string value = "BE1800165492356";
-            var validator = new IbanValidator();
+            var validator = new IcanValidator();
 
             // Act
             var result = validator.Validate(value);
 
             // Assert
-            Assert.That(IbanValidationResult.ValueTooSmall, Is.EqualTo(result));
+            Assert.That(IcanNetResult.ValueTooSmall, Is.EqualTo(result));
         }
 
         [Test]
@@ -51,13 +51,13 @@ namespace IbanValidation.TestFixtures
         {
             // Assert
             const string value = "BE180016549235656";
-            var validator = new IbanValidator();
+            var validator = new IcanValidator();
 
             // Act
             var result = validator.Validate(value);
 
             // Assert
-            Assert.That(IbanValidationResult.ValueTooBig, Is.EqualTo(result));
+            Assert.That(IcanNetResult.ValueTooBig, Is.EqualTo(result));
         }
 
         [Test]
@@ -65,13 +65,13 @@ namespace IbanValidation.TestFixtures
         {
             // Assert
             const string value = "BE18001654923566";
-            var validator = new IbanValidator();
+            var validator = new IcanValidator();
 
             // Act
             var result = validator.Validate(value);
 
             // Assert
-            Assert.That(IbanValidationResult.ValueFailsModule97Check, Is.EqualTo(result));
+            Assert.That(IcanNetResult.ValueFailsModule97Check, Is.EqualTo(result));
         }
 
         [Test]
@@ -79,13 +79,13 @@ namespace IbanValidation.TestFixtures
         {
             // Assert
             const string value = "XX82WEST12345698765432";
-            var validator = new IbanValidator();
+            var validator = new IcanValidator();
 
             // Act
             var result = validator.Validate(value);
 
             // Assert
-            Assert.That(IbanValidationResult.CountryCodeNotKnown, Is.EqualTo(result));
+            Assert.That(IcanNetResult.CountryCodeNotKnown, Is.EqualTo(result));
         }
 
         [Test]
@@ -93,13 +93,13 @@ namespace IbanValidation.TestFixtures
         {
             // Assert
             const string value = "BE18001654923565";
-            var validator = new IbanValidator();
+            var validator = new IcanValidator();
 
             // Act
             var result = validator.Validate(value);
 
             // Assert
-            Assert.That(IbanValidationResult.IsValid, Is.EqualTo(result));
+            Assert.That(IcanNetResult.IsValid, Is.EqualTo(result));
         }
 
         [Test]
@@ -107,13 +107,13 @@ namespace IbanValidation.TestFixtures
         {
             // Assert
             const string value = "GB82WEST12345698765432";
-            var validator = new IbanValidator();
+            var validator = new IcanValidator();
 
             // Act
             var result = validator.Validate(value);
 
             // Assert
-            Assert.That(IbanValidationResult.IsValid, Is.EqualTo(result));
+            Assert.That(IcanNetResult.IsValid, Is.EqualTo(result));
         }
 
         [TestCase("Albania", "AL47212110090000000235698741")]
@@ -206,16 +206,16 @@ namespace IbanValidation.TestFixtures
         [TestCase("United Arab Emirates", "AE260211000000230064016")]
         [TestCase("United Kingdom SEPA", "GB29NWBK60161331926819")]
         [TestCase("Virgin Islands, British", "VG96VPVG0000012345678901")]
-        public void Iban_Should_Be_Valid_With_Spaces(string country, string iban)
+        public void Ican_Should_Be_Valid_With_Spaces(string country, string iban)
         {
             // Assert
-            var validator = new IbanValidator();
+            var validator = new IcanValidator();
 
             // Act
             var result = validator.Validate(iban);
 
             // Assert
-            Assert.That(IbanValidationResult.IsValid, Is.EqualTo(result));
+            Assert.That(IcanNetResult.IsValid, Is.EqualTo(result));
         }
     }
 }

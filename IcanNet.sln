@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IbanValidation", "IbanValidation\IbanValidation.csproj", "{4044EA84-8AF9-43F0-A2FD-9F43B31A33C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IcanNet", "IcanNet\IcanNet.csproj", "{4044EA84-8AF9-43F0-A2FD-9F43B31A33C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IbanValidation.TestFixtures", "IbanValidation.TestFixtures\IbanValidation.TestFixtures.csproj", "{A0AF04D0-D779-4D90-A77F-90E3A051FFE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IcanNet.TestFixtures", "IcanNet.TestFixtures\IcanNet.TestFixtures.csproj", "{A0AF04D0-D779-4D90-A77F-90E3A051FFE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

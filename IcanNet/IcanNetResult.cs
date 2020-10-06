@@ -1,6 +1,6 @@
-﻿namespace IbanValidation
+﻿namespace IcanNet
 {
-    public enum IbanValidationResult
+    public enum IcanNetResult
     {
         IsValid,
         ValueMissing,
