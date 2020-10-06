@@ -16,6 +16,14 @@ jobs:
         with:
           dotnet-version: 3.1.200
 
+      - name: Install dependencies
+        run: dotnet restore
+
+      # Build
+      - name: Build solution and generate NuGet package
+        run: |
+          dotnet build --configuration Release --no-restore
+
       # Publish
       - name: publish on version change
         id: publish_nuget
